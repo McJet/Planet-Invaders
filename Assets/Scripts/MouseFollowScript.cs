@@ -3,6 +3,7 @@ using UnityEngine;
 public class MouseFollowScript : MonoBehaviour
 {
     public float moveSpeed = 0.1f;
+    public Transform startPosition;
 
     Vector3 mousePosition;
     Rigidbody2D rb;
@@ -11,7 +12,6 @@ public class MouseFollowScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //gameObject.transform.position = position;
     }
 
     private void Update()
