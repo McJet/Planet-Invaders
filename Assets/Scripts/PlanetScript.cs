@@ -12,6 +12,7 @@ public class PlanetScript : MonoBehaviour
     public int incrementPower = 1;
     [Tooltip("How long to wait before adding units in seconds"), Range(.1f, 2f)]
     public float delayAmount = 1f;
+    public float attackPower = 0.5f;
 
     [Header("References")]
     public TMP_Text unitText;
@@ -19,7 +20,7 @@ public class PlanetScript : MonoBehaviour
     public Transform shipSpawnPos;
 
     private float timer;
-    private GameObject ship1;
+    private GameObject ship;
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +46,21 @@ public class PlanetScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-
+        
     }
 
     private void OnMouseUp()
     {
+        int numOfShips = Mathf.RoundToInt(units * attackPower);
 
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        for(int i = 0; i < numOfShips; i++)
+        {
+            ship = Instantiate(shipPrefab, shipSpawnPos);
+            ship.GetComponent<HomingTargetScript>().targetPosition = worldPosition;
+        }
+
+        this.units -= numOfShips;
     }
 }

@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: shipSpawnPos
       value: 
       objectReference: {fileID: 1230470024}
+    - target: {fileID: 1121507755806811626, guid: 85500d7e6e3b0c940bd5bb5d1c360b47, type: 3}
+      propertyPath: incrementPower
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1121507755806811630, guid: 85500d7e6e3b0c940bd5bb5d1c360b47, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
