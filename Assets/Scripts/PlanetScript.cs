@@ -18,9 +18,11 @@ public class PlanetScript : MonoBehaviour
     public TMP_Text unitText;
     public GameObject shipPrefab;
     public Transform shipSpawnPos;
+    public GameObject mouseManager;
 
     private float timer;
     private GameObject ship;
+    private bool mouseButtonHeld;
 
     // Start is called before the first frame update
     void Start()
@@ -59,8 +61,17 @@ public class PlanetScript : MonoBehaviour
         {
             ship = Instantiate(shipPrefab, shipSpawnPos);
             ship.GetComponent<HomingTargetScript>().targetPosition = worldPosition;
+            //ship.GetComponent<HomingTargetScript>().targetPlanet = 
         }
 
         this.units -= numOfShips;
+    }
+
+    private void OnMouseOver()
+    {
+        if (mouseButtonHeld)
+        {
+            //GameObject targetPlanet = 
+        }
     }
 }

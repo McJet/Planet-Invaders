@@ -4,6 +4,7 @@ public class HomingTargetScript : MonoBehaviour
 {
     public float moveSpeed = 0.1f;
     public Vector3 targetPosition;
+    public GameObject targetPlanet;
 
     Rigidbody2D rb;
     Vector2 position;
@@ -21,5 +22,14 @@ public class HomingTargetScript : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(position);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject == targetPlanet)
+        {
+            collision.gameObject.GetComponent<PlanetScript>().units--;
+            Destroy(gameObject);
+        }
     }
 }
